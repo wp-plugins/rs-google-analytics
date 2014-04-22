@@ -1,0 +1,7 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+.clear{clear:both;}
+.error,.updated{display:none;}
+#admin-icon{display:block;float:left;margin:7px 8px 0 0;}
+.left-border{border-left:4px solid #3B5998;background-color:#FFF;box-shadow:0 1px 1px 0 rgba(0, 0, 0, 0.1);padding:1px 12px;}
+.preview-color{height:15px;width:15px;display:block;}
+#pages{width:193px;}
