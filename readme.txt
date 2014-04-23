@@ -2,6 +2,7 @@
 Tags: Google, Analytics, Google Analytics, UA, UA Code, Code
 Requires at least: 3.8
 Tested up to: 3.8
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +24,7 @@ You can specify whether you want the code to be added to the footer or the heade
 
 
 == Screenshots ==
-
+1. Simply add your UA code
 
 
 == Changelog ==
@@ -31,7 +32,4 @@ You can specify whether you want the code to be added to the footer or the heade
 = 1.0 =
 * First version of plugin
 
-
 == Upgrade Notice ==
-
-
