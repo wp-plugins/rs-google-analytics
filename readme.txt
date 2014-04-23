@@ -24,7 +24,7 @@ You can specify whether you want the code to be added to the footer or the heade
 
 
 == Screenshots ==
-1. Simply add your UA code and specify whether you would prefer for it to load in the header of the footer of your site
+1. Simply add your UA code
 
 
 == Changelog ==
