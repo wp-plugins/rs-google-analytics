@@ -1,14 +1,13 @@
 <?php
 class RSGoogleAnalytics {
 
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 	protected $plugin_slug = 'rs-google-analytics';
 	protected static $instance = null;
 
 	private function __construct() {
 
 		global $wpdb;
-		global $rsgoogleanalytics;
 
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
@@ -21,7 +20,19 @@ class RSGoogleAnalytics {
 		add_action( 'vanilla', array( $this, 'action_method_name' ) );
 		add_filter( 'vanilla', array( $this, 'filter_method_name' ) );
 
+		$this->checkDBVersion();
 
+	}
+
+	public function checkDBVersion(){
+		global $wpdb;
+		if (get_site_option( 'rs_google_anal' ) != self::VERSION) {
+			// Update table
+			$table_name = $wpdb->prefix . "rs_google_analytics";
+			$wpdb->query("ALTER TABLE $table_name CHANGE COLUMN rsgoogleanalytics_code rsgoogleanalytics_code VARCHAR(255)");
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			update_option( "rs_google_anal", self::VERSION );
+	    }
 	}
 
 	public static function display_plugin_view_page(){
@@ -146,21 +157,19 @@ class RSGoogleAnalytics {
 
 	private static function single_activate() {
 		// We need to install the table 
-		global $vanilla_db_version;
 		global $wpdb;
    		$table_name = $wpdb->prefix . "rs_google_analytics";
       
    		$sql = "CREATE TABLE $table_name (
   		`rsgoogleanalytics_id` int(11) NOT NULL AUTO_INCREMENT,
-  		`rsgoogleanalytics_code` varchar(9) NOT NULL,
+  		`rsgoogleanalytics_code` varchar(255) NOT NULL,
   		`rsgoogleanalytics_location` varchar(6) NOT NULL,
   		PRIMARY KEY (`rsgoogleanalytics_id`)
 		);";
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
-
-		add_option( "rs_google_anal", $rsgoogleanalytics );
+		add_option( "rs_google_anal", self::VERSION );
 	}
 
 	private static function single_deactivate() {

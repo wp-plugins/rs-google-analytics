@@ -3,7 +3,7 @@
  * Plugin Name:       RS Google Analytics
  * Plugin URI:        http://www.rstandley.co.uk
  * Description:       Allows you to add your Google Analytics code to either your header of footer
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Rory Standley
  * Author URI:        http://www.rstandley.co.uk
  */
@@ -12,8 +12,6 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-
-$rsgoogleanalytics = "1.0.0";
 
 require_once(plugin_dir_path( __FILE__ ) . "rs-google-analytics-model.php");
 

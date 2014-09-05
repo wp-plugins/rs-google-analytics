@@ -1,8 +1,8 @@
 === RS Google Analytics ===
 Tags: Google, Analytics, Google Analytics, UA, UA Code, Code
 Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: trunk
+Tested up to: 4.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,9 @@ You can specify whether you want the code to be added to the footer or the heade
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Testing for 4.0, minor bug fix
 
 = 1.0 =
 * First version of plugin
